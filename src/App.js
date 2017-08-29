@@ -7,6 +7,13 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <div className="content">
+          <input
+            type="text"
+            name="todo"
+            className="todo-input"
+          />
+        </div>
       </div>
     );
   }
