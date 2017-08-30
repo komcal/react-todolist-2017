@@ -23,6 +23,14 @@ class App extends Component {
       text: '',
     })
   }
+  onRemove = index => () => {
+    this.setState({
+      todos: [
+        ...this.state.todos.slice(0, index),
+        ...this.state.todos.slice(index + 1),
+      ]
+    })
+  }
   render() {
     return (
       <div className="App">
@@ -46,8 +54,8 @@ class App extends Component {
           </div>
           <div className="todo-list">
             {
-              this.state.todos.map(todo => (
-                <Todo text={todo}/>
+              this.state.todos.map((todo, index) => (
+                <Todo text={todo} onRemove={this.onRemove(index)}/>
               ))
             }
           </div>

@@ -12,6 +12,7 @@ const Todo = props => (
     </div>
     <button
       className="remove-btn"
+      onClick={props.onRemove}
     >
       x
     </button>
