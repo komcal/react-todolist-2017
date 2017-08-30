@@ -13,6 +13,7 @@ const Todo = props => (
         name="complete"
         className="todo-checkbox"
         onChange={props.onCheck}
+        checked={props.todo.complete}
       />
     </div>
     <button

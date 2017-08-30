@@ -7,10 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [{
-        text: 'test',
-        complete: true,
-      }],
+      todos: JSON.parse(localStorage.getItem('todos')) || [],
       text: '',
     }
   }
@@ -25,18 +22,22 @@ class App extends Component {
       text: text,
       complete: false,
     };
+    const newTodos = [...this.state.todos, todo];
     this.setState({
-      todos: [...this.state.todos, todo],
+      todos: newTodos,
       text: '',
     })
+    localStorage.setItem('todos', JSON.stringify(newTodos));
   }
   onRemove = index => () => {
+    const newTodos = [
+      ...this.state.todos.slice(0, index),
+      ...this.state.todos.slice(index + 1),
+    ];
     this.setState({
-      todos: [
-        ...this.state.todos.slice(0, index),
-        ...this.state.todos.slice(index + 1),
-      ]
+      todos: newTodos
     })
+    localStorage.setItem('todos', JSON.stringify(newTodos));
   }
   onCheck = index => (e) => {
     const todos = this.state.todos;
@@ -44,6 +45,7 @@ class App extends Component {
     this.setState({
       todos: todos,
     })
+    localStorage.setItem('todos', JSON.stringify(todos));
   }
   render() {
     return (
