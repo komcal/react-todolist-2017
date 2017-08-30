@@ -15,9 +15,22 @@ body {
   background: #5b5b5b;
   margin: 0;
 }
+.input-wrapper {
+  display: flex;
+  align-items: center;
+}
+.todo-btn {
+  height: 52px;
+  width: 100px;
+  font-size: 30px;
+  background: #21d033;
+  color: white;
+  border: none;
+  border-radius: 0;
+}
 .todo-input {
   border: 1px solid black;
-  width: 100%;
+  flex: 1;
   height: 50px;
   font-size: 20px;
   padding-left: 20px;
