@@ -7,7 +7,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: ['test'],
+      todos: [{
+        text: 'test',
+        complete: true,
+      }],
       text: '',
     }
   }
@@ -18,8 +21,12 @@ class App extends Component {
   }
   addTodo = () => {
     const text = this.state.text;
+    const todo = {
+      text: text,
+      complete: false,
+    };
     this.setState({
-      todos: [...this.state.todos, text],
+      todos: [...this.state.todos, todo],
       text: '',
     })
   }
@@ -55,7 +62,7 @@ class App extends Component {
           <div className="todo-list">
             {
               this.state.todos.map((todo, index) => (
-                <Todo text={todo} onRemove={this.onRemove(index)}/>
+                <Todo todo={todo} onRemove={this.onRemove(index)}/>
               ))
             }
           </div>
