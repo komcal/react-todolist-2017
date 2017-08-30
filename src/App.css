@@ -35,3 +35,39 @@ body {
   font-size: 20px;
   padding-left: 20px;
 }
+.todo {
+  display: flex;
+  align-items: center;
+}
+.todo-text {
+  flex: 1;
+  background: white;
+  font-size: 20px;
+  margin: 0;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border: 1px solid black;
+}
+.checkbox-wrapper {
+  width: 46px;
+  height: 52px;
+  background: #c1c1c1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.todo-checkbox {
+  width: 30px;
+  height: 30px;
+}
+.remove-btn {
+  width: 42px;
+  height: 52px;
+  font-size: 30px;
+  background: #ab3636;
+  color: white;
+  border: none;
+  border-radius: 0;
+}

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './containers/Header';
+import Todo from './components/Todo';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos: [],
+      todos: ['test'],
       text: '',
     }
   }
@@ -46,7 +47,7 @@ class App extends Component {
           <div className="todo-list">
             {
               this.state.todos.map(todo => (
-                <div>{todo}</div>
+                <Todo text={todo}/>
               ))
             }
           </div>
