@@ -38,6 +38,13 @@ class App extends Component {
       ]
     })
   }
+  onCheck = index => (e) => {
+    const todos = this.state.todos;
+    todos[index].complete = e.target.checked;
+    this.setState({
+      todos: todos,
+    })
+  }
   render() {
     return (
       <div className="App">
@@ -62,7 +69,11 @@ class App extends Component {
           <div className="todo-list">
             {
               this.state.todos.map((todo, index) => (
-                <Todo todo={todo} onRemove={this.onRemove(index)}/>
+                <Todo
+                  todo={todo}
+                  onRemove={this.onRemove(index)}
+                  onCheck={this.onCheck(index)}
+                />
               ))
             }
           </div>
